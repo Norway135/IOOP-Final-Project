@@ -21,9 +21,25 @@ namespace Connect_Four
     {
         static void Main(string[] args)
         {
-            
+
+            int[,] board = new int[6,7];
+
+            for (int j = 0; j < board.GetLength(0); j++)
+            {
+
+                for (int i = 0; i < board.GetLength(1); i++)
+                {
+
+                    Console.Write(board[0, 1]);
+
+                    Console.Write(" ");
 
 
+                }
+
+                Console.WriteLine("");
+
+            }
         }
     }
 }
