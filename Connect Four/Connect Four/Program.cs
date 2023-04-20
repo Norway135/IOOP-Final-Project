@@ -68,7 +68,7 @@ namespace Connect_Four
                 for (int j = 0; j < board.GetLength(1); j++)
                 {
 
-                    board[i, j]=0;
+                    board[i, j] = 0;
 
                 }
 
@@ -85,10 +85,12 @@ namespace Connect_Four
 
             Boolean p1turn = true, p2turn = false;
 
-            int rp = 0, two = 0, three = 0, four = 0;
+            int rp = 0, two = 0, three = 0, four = 0, twov = 0, threev = 0, fourv = 0, turn=0;
 
             while (run == true)
             {
+
+                turn++;
 
                 while (p1turn == true)
                 {
@@ -209,6 +211,8 @@ namespace Connect_Four
 
                     }
 
+                    /*horizontals*/
+
                     if (rp <= 5) 
                     {
 
@@ -237,6 +241,8 @@ namespace Connect_Four
                                         p1turn = true;
                                         
                                         p2turn=false;
+
+                                        turn = 0;
 
                                         resetboard(board);
 
@@ -279,6 +285,8 @@ namespace Connect_Four
 
                                         p2turn = false;
 
+                                        turn = 0;
+
                                         resetboard(board);
 
                                     }
@@ -319,6 +327,8 @@ namespace Connect_Four
                                         p1turn = true;
 
                                         p2turn = false;
+
+                                        turn = 0;
 
                                         resetboard(board);
 
@@ -361,9 +371,447 @@ namespace Connect_Four
 
                                         p2turn = false;
 
+                                        turn = 0;
+
                                         resetboard(board);
 
                                     }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    /*diagonals bottom left top right*/
+
+                    if (rp > 2)
+                    {
+
+                        if (tempcolumn < 4)
+                        {
+
+                            two = tempcolumn + 1;
+
+                            three = tempcolumn + 2;
+
+                            four = tempcolumn + 3;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp - 3;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 3)
+                    {
+
+                        if (tempcolumn > 2)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn - 3;
+
+                            twov = rp + 1;
+
+                            threev = rp + 2;
+
+                            fourv = rp + 3;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 5 && rp > 1)
+                    {
+
+                        if (tempcolumn > 0 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn + 1;
+
+                            four = tempcolumn + 2;
+
+                            twov = rp + 1;
+
+                            threev = rp - 1;
+
+                            fourv = rp - 2;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 4 && rp > 0)
+                    {
+
+                        if (tempcolumn > 1 && tempcolumn < 6)
+                        {
+
+                            two = tempcolumn - 2;
+
+                            three = tempcolumn - 1;
+
+                            four = tempcolumn + 1;
+
+                            twov= rp + 2;
+
+                            threev= rp + 1;
+
+                            fourv= rp - 1;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    /*diagonals top left bottom right*/
+
+                    if (rp < 3)
+                    {
+
+                        if (tempcolumn < 4)
+                        {
+
+                            two = tempcolumn + 1;
+
+                            three = tempcolumn + 2;
+
+                            four = tempcolumn + 3;
+
+                            twov = rp + 1;
+
+                            threev = rp + 2;
+
+                            fourv = rp + 3;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp > 2)
+                    {
+
+                        if (tempcolumn > 2)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn - 3;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp - 3;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 4 && rp > 0)
+                    {
+
+                        if (tempcolumn > 0 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn + 1;
+
+                            four = tempcolumn + 2;
+
+                            twov = rp - 1;
+
+                            threev = rp + 1;
+
+                            fourv = rp + 2;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 5 && rp > 1)
+                    {
+
+                        if (tempcolumn > 1 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn + 1;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp + 1;
+
+                            if (board[twov, two] == 1)
+                            {
+
+                                if (board[threev, three] == 1)
+                                {
+
+                                    if (board[fourv, four] == 1)
+                                    {
+
+                                        Console.WriteLine("Player 1 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    /*vertical*/
+
+                    if (rp < 3) 
+                    {
+
+                        twov = rp + 1;
+
+                        threev = rp + 2;
+
+                        fourv = rp + 3;
+
+                        if (board[twov, tempcolumn] == 1)
+                        {
+
+                            if (board[threev, tempcolumn] == 1)
+                            {
+
+                                if (board[fourv, tempcolumn] == 1)
+                                {
+
+                                    Console.WriteLine("Player 1 Wins");
+
+                                    Console.WriteLine("Resetting Board");
+
+                                    p1turn = true;
+
+                                    p2turn = false;
+
+                                    turn = 0;
+
+                                    resetboard(board);
 
                                 }
 
@@ -494,6 +942,8 @@ namespace Connect_Four
 
                     }
 
+                    /*horizontals*/
+
                     if (rp <= 5)
                     {
 
@@ -523,6 +973,8 @@ namespace Connect_Four
 
                                         p2turn = false;
 
+                                        turn = 0;
+
                                         resetboard(board);
 
                                     }
@@ -533,38 +985,40 @@ namespace Connect_Four
 
                         }
 
-                        if (rp <= 5)
+                    }
+
+                    if (rp <= 5)
+                    {
+
+                        if (tempcolumn > 2)
                         {
 
-                            if (tempcolumn > 2)
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn - 3;
+
+                            if (board[rp, two] == 2)
                             {
 
-                                two = tempcolumn - 1;
-
-                                three = tempcolumn - 2;
-
-                                four = tempcolumn - 3;
-
-                                if (board[rp, two] == 2)
+                                if (board[rp, three] == 2)
                                 {
 
-                                    if (board[rp, three] == 2)
+                                    if (board[rp, four] == 2)
                                     {
 
-                                        if (board[rp, four] == 2)
-                                        {
+                                        Console.WriteLine("Player 2 Wins");
 
-                                            Console.WriteLine("Player 2 Wins");
+                                        Console.WriteLine("Resetting Board");
 
-                                            Console.WriteLine("Resetting Board");
+                                        p1turn = true;
 
-                                            p1turn = true;
+                                        p2turn = false;
 
-                                            p2turn = false;
+                                        turn = 0;
 
-                                            resetboard(board);
-
-                                        }
+                                        resetboard(board);
 
                                     }
 
@@ -573,7 +1027,7 @@ namespace Connect_Four
                             }
 
                         }
-                    
+
                     }
 
                     if (rp <= 5)
@@ -604,6 +1058,8 @@ namespace Connect_Four
                                         p1turn = true;
 
                                         p2turn = false;
+
+                                        turn = 0;
 
                                         resetboard(board);
 
@@ -646,6 +1102,8 @@ namespace Connect_Four
 
                                         p2turn = false;
 
+                                        turn = 0;
+
                                         resetboard(board);
 
                                     }
@@ -657,6 +1115,459 @@ namespace Connect_Four
                         }
 
                     }
+
+                    /*diagonals bottom left top right*/
+
+                    if (rp > 2)
+                    {
+
+                        if (tempcolumn < 4)
+                        {
+
+                            two = tempcolumn + 1;
+
+                            three = tempcolumn + 2;
+
+                            four = tempcolumn + 3;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp - 3;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 3)
+                    {
+
+                        if (tempcolumn > 2)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn - 3;
+
+                            twov = rp + 1;
+
+                            threev = rp + 2;
+
+                            fourv = rp + 3;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 5 && rp > 1)
+                    {
+
+                        if (tempcolumn > 0 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn + 1;
+
+                            four = tempcolumn + 2;
+
+                            twov = rp + 1;
+
+                            threev = rp - 1;
+
+                            fourv = rp - 2;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 4 && rp > 0)
+                    {
+
+                        if (tempcolumn > 1 && tempcolumn < 6)
+                        {
+
+                            two = tempcolumn - 2;
+
+                            three = tempcolumn - 1;
+
+                            four = tempcolumn + 1;
+
+                            twov = rp + 2;
+
+                            threev = rp + 1;
+
+                            fourv = rp - 1;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    /*diagonals top left bottom right*/
+
+                    if (rp < 3)
+                    {
+
+                        if (tempcolumn < 4)
+                        {
+
+                            two = tempcolumn + 1;
+
+                            three = tempcolumn + 2;
+
+                            four = tempcolumn + 3;
+
+                            twov = rp + 1;
+
+                            threev = rp + 2;
+
+                            fourv = rp + 3;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp > 2)
+                    {
+
+                        if (tempcolumn > 2)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn - 3;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp - 3;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 4 && rp > 0)
+                    {
+
+                        if (tempcolumn > 0 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn + 1;
+
+                            four = tempcolumn + 2;
+
+                            twov = rp - 1;
+
+                            threev = rp + 1;
+
+                            fourv = rp + 2;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (rp < 5 && rp > 1)
+                    {
+
+                        if (tempcolumn > 1 && tempcolumn < 5)
+                        {
+
+                            two = tempcolumn - 1;
+
+                            three = tempcolumn - 2;
+
+                            four = tempcolumn + 1;
+
+                            twov = rp - 1;
+
+                            threev = rp - 2;
+
+                            fourv = rp + 1;
+
+                            if (board[twov, two] == 2)
+                            {
+
+                                if (board[threev, three] == 2)
+                                {
+
+                                    if (board[fourv, four] == 2)
+                                    {
+
+                                        Console.WriteLine("Player 2 Wins");
+
+                                        Console.WriteLine("Resetting Board");
+
+                                        p1turn = true;
+
+                                        p2turn = false;
+
+                                        turn = 0;
+
+                                        resetboard(board);
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    /*vertical*/
+
+                    if (rp < 3)
+                    {
+
+                        twov = rp + 1;
+
+                        threev = rp + 2;
+
+                        fourv = rp + 3;
+
+                        if (board[twov, tempcolumn] == 2)
+                        {
+
+                            if (board[threev, tempcolumn] == 2)
+                            {
+
+                                if (board[fourv, tempcolumn] == 2)
+                                {
+
+                                    Console.WriteLine("Player 2 Wins");
+
+                                    Console.WriteLine("Resetting Board");
+
+                                    p1turn = true;
+
+                                    p2turn = false;
+
+                                    turn = 0;
+
+                                    resetboard(board);
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                if (turn >= 21) 
+                {
+
+                    Console.WriteLine("Out Of Space");
+
+                    Console.WriteLine("Resetting Board");
+
+                    p1turn = true;
+
+                    p2turn = false;
+
+                    turn = 0;
+
+                    resetboard(board);
 
                 }
 
